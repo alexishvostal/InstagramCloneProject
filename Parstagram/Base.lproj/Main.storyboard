@@ -259,7 +259,7 @@
         <!--Navigation Controller-->
         <scene sceneID="gt8-DA-VRY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="OqK-Tc-i0e" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="OqK-Tc-i0e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tpM-UT-2Az">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
