@@ -92,6 +92,29 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // get post
+        let post = posts[indexPath.row]
+        
+        // create comment object
+        let comment = PFObject(className: "Comments")
+        comment["text"] = "This is a random comment"
+        comment["post"] = post
+        comment["author"] = PFUser.current()!
+        
+        // every post has an array called comments, add this comment to the array
+        post.add(comment, forKey: "comments")
+        
+        // once you have a comment save the post in Parse
+        post.saveInBackground{ (success, error) in
+            if success {
+                print("Comment saved")
+            } else {
+                print("Error saving comment")
+            }
+        }
+    }
+    
     @IBAction func onLogoutButton(_ sender: Any) {
         // logout of Parse
         PFUser.logOut()
